@@ -14,6 +14,7 @@
             background-color: #f7f7f7;
             color: #333;
             overflow-x: hidden;
+            position: relative;
         }
 
         /* Контейнер для всього контенту */
@@ -62,38 +63,45 @@
         /* Сайт візитка */
         .business-card {
             display: none;
-            animation: fadeIn 1s ease-in-out, slideDown 1s ease-in-out;
-            background-color: #ffffff;
+            animation: fadeIn 1s ease-in-out;
             padding: 40px;
             width: 100%;
-            height: 100vh;
             box-sizing: border-box;
             position: relative;
-            text-align: left;
         }
 
-        .business-card h3 {
-            color: #007bff;
-            font-size: 2.5rem;
+        /* Стиль для кожного блоку візитки */
+        .block {
+            background-color: #007bff;
+            color: white;
+            padding: 50px;
+            margin-bottom: 40px;
+            border-radius: 10px;
+            text-align: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: blockAppear 1s forwards;
         }
 
-        .business-card p {
-            font-size: 1.1rem;
-            color: #333;
-            line-height: 1.8;
+        .block h4 {
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
 
-        .business-card ul {
-            list-style-type: none;
-            padding: 0;
+        /* Анімація для появи блоків */
+        @keyframes blockAppear {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .business-card ul li {
-            font-size: 1.1rem;
-            padding: 5px 0;
-        }
-
-        /* Анімації */
+        /* Анімація для появи сайту */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -103,23 +111,17 @@
             }
         }
 
-        @keyframes slideDown {
-            from {
-                transform: translateY(-100%);
-            }
-            to {
-                transform: translateY(0);
-            }
-        }
-
-        /* Стилі футера */
+        /* Анімація для футера */
         .footer {
-            position: absolute;
-            bottom: 20px;
+            position: fixed;
+            bottom: 0;
             width: 100%;
             text-align: center;
             font-size: 0.875rem;
             color: #aaa;
+            background-color: #333;
+            padding: 10px 0;
+            margin-top: 20px;
         }
 
         /* Адаптивність для мобільних */
@@ -148,27 +150,36 @@
 
     <!-- Сайт візитка -->
     <div class="business-card" id="businessCard">
-        <h3>Welcome to Real Estate Rentals</h3>
-        <p>We are a leading real estate company offering premium office spaces and commercial properties for businesses of all sizes. Whether you're looking for a small office or a large corporate space, we have something for you.</p>
+        <div class="block">
+            <h4>Welcome to Real Estate Rentals</h4>
+            <p>We provide premium office spaces and commercial properties for businesses of all sizes. Whether you're looking for a small office or a large corporate space, we have a solution for you.</p>
+        </div>
 
-        <h4>Our Services</h4>
-        <ul>
-            <li>Premium Office Space Rentals</li>
-            <li>Flexible Lease Terms</li>
-            <li>Co-working Spaces</li>
-            <li>Prime Locations in City Center</li>
-            <li>Conference and Meeting Rooms</li>
-        </ul>
+        <div class="block">
+            <h4>Our Services</h4>
+            <ul>
+                <li>Premium Office Space Rentals</li>
+                <li>Flexible Lease Terms</li>
+                <li>Co-working Spaces</li>
+                <li>Prime Locations in City Center</li>
+                <li>Conference and Meeting Rooms</li>
+            </ul>
+        </div>
 
-        <h4>Why Choose Us?</h4>
-        <p>Our team is dedicated to providing the best possible rental experience. We offer flexible options, premium facilities, and top-notch customer service to help your business grow and thrive.</p>
+        <div class="block">
+            <h4>Why Choose Us?</h4>
+            <p>Our team is dedicated to providing the best possible rental experience. We offer flexible options, premium facilities, and top-notch customer service to help your business grow and thrive.</p>
+        </div>
 
-        <h4>Contact Us</h4>
-        <p><strong>Email:</strong> info@realestaterentals.com</p>
-        <p><strong>Phone:</strong> +123 456 789</p>
-        <p><strong>Location:</strong> 123 Main Street, Suite 456, City Name, Country</p>
+        <div class="block">
+            <h4>Contact Us</h4>
+            <p><strong>Email:</strong> info@realestaterentals.com</p>
+            <p><strong>Phone:</strong> +123 456 789</p>
+            <p><strong>Location:</strong> 123 Main Street, Suite 456, City Name, Country</p>
+        </div>
     </div>
 
+    <!-- Футер -->
     <div class="footer">
         <p>&copy; 2025 PromoFlow Real Estate Rentals. All rights reserved.</p>
     </div>
@@ -180,6 +191,13 @@
             
             // Показуємо сайт візитку
             document.getElementById("businessCard").style.display = "block";
+
+            // Анімація для кожного блоку з затримкою
+            const blocks = document.querySelectorAll('.block');
+            blocks.forEach((block, index) => {
+                block.style.animationDelay = `${index * 0.5}s`;
+                block.style.animationName = 'blockAppear';
+            });
         }
     </script>
 </body>
