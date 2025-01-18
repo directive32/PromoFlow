@@ -13,9 +13,10 @@
             font-family: 'Poppins', sans-serif;
             background-color: #f7f7f7;
             color: #333;
+            overflow-x: hidden;
         }
 
-        /* Контейнер сайту */
+        /* Контейнер для всього контенту */
         .container {
             display: flex;
             flex-direction: column;
@@ -58,31 +59,60 @@
             background-color: #0056b3;
         }
 
-        .company-info {
+        /* Сайт візитка */
+        .business-card {
             display: none;
+            animation: fadeIn 1s ease-in-out, slideDown 1s ease-in-out;
             background-color: #ffffff;
-            border: 2px solid #007bff;
-            border-radius: 8px;
-            padding: 20px;
-            width: 80%;
-            max-width: 800px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            width: 100%;
+            height: 100vh;
+            box-sizing: border-box;
+            position: relative;
             text-align: left;
-            margin-top: 30px;
-            transition: opacity 1s ease;
         }
 
-        .company-info h3 {
-            margin-top: 0;
+        .business-card h3 {
             color: #007bff;
+            font-size: 2.5rem;
         }
 
-        .company-info p {
-            font-size: 1rem;
+        .business-card p {
+            font-size: 1.1rem;
             color: #333;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
+        .business-card ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .business-card ul li {
+            font-size: 1.1rem;
+            padding: 5px 0;
+        }
+
+        /* Анімації */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+            }
+            to {
+                transform: translateY(0);
+            }
+        }
+
+        /* Стилі футера */
         .footer {
             position: absolute;
             bottom: 20px;
@@ -90,18 +120,6 @@
             text-align: center;
             font-size: 0.875rem;
             color: #aaa;
-        }
-
-        /* Анімації */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         /* Адаптивність для мобільних */
@@ -125,27 +143,30 @@
     <div class="container">
         <h1 id="site-title">PromoFlow</h1>
         <p id="site-description">Experience cutting-edge advertising technologies and test your campaigns with ease. Optimize your ads, monitor performance, and improve your results seamlessly.</p>
-        <button class="button" onclick="showCompanyInfo()">Start Working</button>
+        <button class="button" onclick="showBusinessCard()">Start Working</button>
+    </div>
 
-        <!-- Інформація про компанію після натискання кнопки -->
-        <div class="company-info" id="company-info">
-            <h3>About Our Company</h3>
-            <p>We are a leading real estate rental company, specializing in providing high-quality office spaces and commercial properties for businesses of all sizes. Our mission is to offer flexible, affordable, and convenient rental solutions tailored to your specific needs.</p>
+    <!-- Сайт візитка -->
+    <div class="business-card" id="businessCard">
+        <h3>Welcome to Real Estate Rentals</h3>
+        <p>We are a leading real estate company offering premium office spaces and commercial properties for businesses of all sizes. Whether you're looking for a small office or a large corporate space, we have something for you.</p>
 
-            <h4>Our Services</h4>
-            <ul>
-                <li>Office Space Rentals</li>
-                <li>Co-working Spaces</li>
-                <li>Conference Rooms</li>
-                <li>Flexible Lease Terms</li>
-                <li>Prime Locations</li>
-            </ul>
+        <h4>Our Services</h4>
+        <ul>
+            <li>Premium Office Space Rentals</li>
+            <li>Flexible Lease Terms</li>
+            <li>Co-working Spaces</li>
+            <li>Prime Locations in City Center</li>
+            <li>Conference and Meeting Rooms</li>
+        </ul>
 
-            <h4>Contact Us</h4>
-            <p><strong>Email:</strong> info@realestaterentals.com</p>
-            <p><strong>Phone:</strong> +123 456 789</p>
-            <p><strong>Location:</strong> 123 Main Street, Suite 456, City Name, Country</p>
-        </div>
+        <h4>Why Choose Us?</h4>
+        <p>Our team is dedicated to providing the best possible rental experience. We offer flexible options, premium facilities, and top-notch customer service to help your business grow and thrive.</p>
+
+        <h4>Contact Us</h4>
+        <p><strong>Email:</strong> info@realestaterentals.com</p>
+        <p><strong>Phone:</strong> +123 456 789</p>
+        <p><strong>Location:</strong> 123 Main Street, Suite 456, City Name, Country</p>
     </div>
 
     <div class="footer">
@@ -153,13 +174,12 @@
     </div>
 
     <script>
-        function showCompanyInfo() {
-            // Зміна тексту на сайті
-            document.getElementById("site-title").innerText = "Real Estate Rentals";
-            document.getElementById("site-description").innerText = "We provide high-quality rental spaces for businesses and professionals. Find your perfect office or workspace today!";
+        function showBusinessCard() {
+            // Ховаємо первинний контент
+            document.querySelector('.container').style.display = 'none';
             
-            // Показ візитки компанії
-            document.getElementById("company-info").style.display = "block";
+            // Показуємо сайт візитку
+            document.getElementById("businessCard").style.display = "block";
         }
     </script>
 </body>
