@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AdTestHub</title>
+    <title>PromoFlow</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Загальні стилі */
@@ -58,6 +58,24 @@
             background-color: #0056b3;
         }
 
+        /* Стилі для візитки */
+        .business-card {
+            display: none;
+            background-color: #ffffff;
+            border: 2px solid #007bff;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            text-align: left;
+        }
+
+        .business-card h3 {
+            margin-top: 0;
+            color: #007bff;
+        }
+
         .footer {
             position: absolute;
             bottom: 20px;
@@ -98,12 +116,27 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to AdTestHub</h1>
+        <h1>Welcome to PromoFlow</h1>
         <p>Experience cutting-edge advertising technologies and test your campaigns with ease. Optimize your ads, monitor performance, and improve your results seamlessly.</p>
-        <button class="button">Start Testing</button>
+        <button class="button" onclick="showBusinessCard()">Start Working</button>
+
+        <!-- Візитка, що з'являється після натискання -->
+        <div class="business-card" id="businessCard">
+            <h3>Your Business Card</h3>
+            <p><strong>Name:</strong> PromoFlow</p>
+            <p><strong>Position:</strong> Ad Testing Specialist</p>
+            <p><strong>Email:</strong> contact@promoflow.com</p>
+            <p><strong>Phone:</strong> +123 456 789</p>
+        </div>
     </div>
     <div class="footer">
-        <p>&copy; 2025 AdTestHub. All rights reserved.</p>
+        <p>&copy; 2025 PromoFlow. All rights reserved.</p>
     </div>
+
+    <script>
+        function showBusinessCard() {
+            document.getElementById("businessCard").style.display = "block";
+        }
+    </script>
 </body>
 </html>
