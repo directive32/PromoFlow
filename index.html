@@ -24,7 +24,8 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 20px;
+            padding: 0;
+            margin: 0;
         }
 
         h1 {
@@ -39,15 +40,19 @@
             align-items: center;
             justify-content: space-between;
             height: 100vh;
-            padding: 60px 20px;
+            width: 100%;
             box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            background: #fff;
             transition: background-color 0.5s ease;
         }
 
+        /* Зображення */
         .block img {
             width: 50%;
             object-fit: cover;
-            border-radius: 15px;
+            height: 100vh;
             transition: transform 0.3s ease;
         }
 
@@ -55,14 +60,19 @@
             transform: scale(1.05);
         }
 
+        /* Текстова частина */
         .block-text {
             width: 50%;
             padding: 20px;
             text-align: left;
             color: #fff;
             background: rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
             box-sizing: border-box;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
         }
 
         .block-text h2 {
@@ -74,6 +84,8 @@
         .block-text p {
             font-size: 1.25rem;
             line-height: 1.6;
+            text-align: left;
+            margin: 0;
         }
 
         /* Плавний перехід кольорів */
@@ -134,7 +146,7 @@
         
         <!-- Блоки -->
         <div class="block" style="background-color: #ff6347;">
-            <img src="images/1.jpg" alt="Studio 1">
+            <img src="images/1.jpg" alt="Studio 1" id="img1">
             <div class="block-text">
                 <h2>Capture the Perfect Moment</h2>
                 <p>Our photographers specialize in capturing the most precious moments in your life. Whether it's a wedding, family photo shoot, or professional headshots, we ensure that every shot tells a unique story.</p>
@@ -142,7 +154,7 @@
         </div>
 
         <div class="block" style="background-color: #ffab40;">
-            <img src="images/2.jpg" alt="Studio 2">
+            <img src="images/2.jpg" alt="Studio 2" id="img2">
             <div class="block-text">
                 <h2>Creative and Stunning Photography</h2>
                 <p>We use the latest equipment and creative techniques to create breathtaking images that stand out. Our photographers work with you to design custom sessions tailored to your needs and style.</p>
@@ -150,7 +162,7 @@
         </div>
 
         <div class="block" style="background-color: #42a5f5;">
-            <img src="images/3.jpg" alt="Studio 3">
+            <img src="images/3.jpg" alt="Studio 3" id="img3">
             <div class="block-text">
                 <h2>For Every Occasion</h2>
                 <p>From intimate portraits to grand celebrations, PromoFlow Photo Studio captures all the moments that matter. We’re here to help you document your most cherished events with stunning visuals.</p>
@@ -158,7 +170,7 @@
         </div>
 
         <div class="block" style="background-color: #66bb6a;">
-            <img src="images/4.jpg" alt="Studio 4">
+            <img src="images/4.jpg" alt="Studio 4" id="img4">
             <div class="block-text">
                 <h2>Studio or On Location</h2>
                 <p>Whether you want to shoot in our state-of-the-art studio or at a location of your choice, we’re here to bring your vision to life. Let’s create beautiful images in the perfect setting.</p>
@@ -166,7 +178,7 @@
         </div>
 
         <div class="block" style="background-color: #ff7043;">
-            <img src="images/5.jpg" alt="Studio 5">
+            <img src="images/5.jpg" alt="Studio 5" id="img5">
             <div class="block-text">
                 <h2>Professional Retouching Services</h2>
                 <p>We offer high-quality photo editing services to perfect every shot. From simple color corrections to complete makeovers, our team ensures that every photo looks flawless.</p>
@@ -174,7 +186,7 @@
         </div>
 
         <div class="block" style="background-color: #ab47bc;">
-            <img src="images/6.jpg" alt="Studio 6">
+            <img src="images/6.jpg" alt="Studio 6" id="img6">
             <div class="block-text">
                 <h2>Book Your Session Today</h2>
                 <p>Ready to start your photo journey with us? Get in touch today to book your next shoot. Whether you need a personal or business photoshoot, we are here to help you capture the best moments.</p>
@@ -182,7 +194,7 @@
         </div>
 
         <div class="block" style="background-color: #8d6e63;">
-            <img src="images/7.jpg" alt="Studio 7">
+            <img src="images/7.jpg" alt="Studio 7" id="img7">
             <div class="block-text">
                 <h2>Events and Celebrations</h2>
                 <p>From weddings to corporate events, we specialize in event photography that captures the essence of your celebration. Our team makes sure every moment is beautifully documented.</p>
@@ -190,7 +202,7 @@
         </div>
 
         <div class="block" style="background-color: #00acc1;">
-            <img src="images/8.jpg" alt="Studio 8">
+            <img src="images/8.jpg" alt="Studio 8" id="img8">
             <div class="block-text">
                 <h2>Editorial and Fashion Photography</h2>
                 <p>If you’re looking to showcase your product or style, our editorial and fashion photography services offer high-end, professional shots that help you stand out in any industry.</p>
@@ -198,7 +210,7 @@
         </div>
 
         <div class="block" style="background-color: #fbc02d;">
-            <img src="images/9.jpg" alt="Studio 9">
+            <img src="images/9.jpg" alt="Studio 9" id="img9">
             <div class="block-text">
                 <h2>High-Quality Prints</h2>
                 <p>Our photos aren’t just meant to be seen on a screen. We provide high-quality prints that can be displayed in your home or office. Bring your memories to life with stunning printed photos.</p>
@@ -206,7 +218,7 @@
         </div>
 
         <div class="block" style="background-color: #ab47bc;">
-            <img src="images/10.jpg" alt="Studio 10">
+            <img src="images/10.jpg" alt="Studio 10" id="img10">
             <div class="block-text">
                 <h2>Photo Packages and Pricing</h2>
                 <p>We offer flexible pricing options for all kinds of photography sessions. Whether you need a quick portrait session or a full-day wedding shoot, we’ve got a package that suits your needs and budget.</p>
@@ -218,5 +230,40 @@
     <div class="footer">
         <p>&copy; 2025 PromoFlow Photo Studio. All rights reserved.</p>
     </div>
+
+    <script>
+        // Функція для обчислення середнього кольору зображення (для реалізації плавного переходу кольору)
+        function averageColor(image) {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            img.src = image.src;
+
+            img.onload = function () {
+                canvas.width = img.width;
+                canvas.height = img.height;
+                ctx.drawImage(img, 0, 0);
+                const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+                let r = 0, g = 0, b = 0;
+
+                for (let i = 0; i < data.length; i += 4) {
+                    r += data[i];
+                    g += data[i + 1];
+                    b += data[i + 2];
+                }
+
+                r = Math.floor(r / (data.length / 4));
+                g = Math.floor(g / (data.length / 4));
+                b = Math.floor(b / (data.length / 4));
+
+                // Встановлюємо середній колір фону для блоку
+                document.querySelector(`#${image.id}`).parentNode.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+            }
+        }
+
+        // Ініціалізація середнього кольору для кожного зображення
+        const images = document.querySelectorAll('img');
+        images.forEach(img => averageColor(img));
+    </script>
 </body>
 </html>
