@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PromoFlow</title>
+    <title>PromoFlow - Real Estate Rentals</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         /* Загальні стилі */
@@ -24,13 +24,14 @@
             height: 100vh;
             text-align: center;
             padding: 20px;
+            transition: all 0.5s ease;
         }
 
         h1 {
             font-size: 3rem;
             color: #007bff;
             margin-bottom: 20px;
-            animation: fadeIn 1.5s ease-in-out;
+            transition: opacity 0.5s ease;
         }
 
         p {
@@ -39,7 +40,7 @@
             line-height: 1.6;
             max-width: 600px;
             margin: 0 auto 30px;
-            animation: fadeIn 2s ease-in-out;
+            transition: opacity 0.5s ease;
         }
 
         .button {
@@ -51,29 +52,35 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            animation: fadeIn 2.5s ease-in-out;
         }
 
         .button:hover {
             background-color: #0056b3;
         }
 
-        /* Стилі для візитки */
-        .business-card {
+        .company-info {
             display: none;
             background-color: #ffffff;
             border: 2px solid #007bff;
             border-radius: 8px;
             padding: 20px;
-            width: 300px;
+            width: 80%;
+            max-width: 800px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
             text-align: left;
+            margin-top: 30px;
+            transition: opacity 1s ease;
         }
 
-        .business-card h3 {
+        .company-info h3 {
             margin-top: 0;
             color: #007bff;
+        }
+
+        .company-info p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.6;
         }
 
         .footer {
@@ -116,26 +123,43 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome to PromoFlow</h1>
-        <p>Experience cutting-edge advertising technologies and test your campaigns with ease. Optimize your ads, monitor performance, and improve your results seamlessly.</p>
-        <button class="button" onclick="showBusinessCard()">Start Working</button>
+        <h1 id="site-title">PromoFlow</h1>
+        <p id="site-description">Experience cutting-edge advertising technologies and test your campaigns with ease. Optimize your ads, monitor performance, and improve your results seamlessly.</p>
+        <button class="button" onclick="showCompanyInfo()">Start Working</button>
 
-        <!-- Візитка, що з'являється після натискання -->
-        <div class="business-card" id="businessCard">
-            <h3>Your Business Card</h3>
-            <p><strong>Name:</strong> PromoFlow</p>
-            <p><strong>Position:</strong> Ad Testing Specialist</p>
-            <p><strong>Email:</strong> contact@promoflow.com</p>
+        <!-- Інформація про компанію після натискання кнопки -->
+        <div class="company-info" id="company-info">
+            <h3>About Our Company</h3>
+            <p>We are a leading real estate rental company, specializing in providing high-quality office spaces and commercial properties for businesses of all sizes. Our mission is to offer flexible, affordable, and convenient rental solutions tailored to your specific needs.</p>
+
+            <h4>Our Services</h4>
+            <ul>
+                <li>Office Space Rentals</li>
+                <li>Co-working Spaces</li>
+                <li>Conference Rooms</li>
+                <li>Flexible Lease Terms</li>
+                <li>Prime Locations</li>
+            </ul>
+
+            <h4>Contact Us</h4>
+            <p><strong>Email:</strong> info@realestaterentals.com</p>
             <p><strong>Phone:</strong> +123 456 789</p>
+            <p><strong>Location:</strong> 123 Main Street, Suite 456, City Name, Country</p>
         </div>
     </div>
+
     <div class="footer">
-        <p>&copy; 2025 PromoFlow. All rights reserved.</p>
+        <p>&copy; 2025 PromoFlow Real Estate Rentals. All rights reserved.</p>
     </div>
 
     <script>
-        function showBusinessCard() {
-            document.getElementById("businessCard").style.display = "block";
+        function showCompanyInfo() {
+            // Зміна тексту на сайті
+            document.getElementById("site-title").innerText = "Real Estate Rentals";
+            document.getElementById("site-description").innerText = "We provide high-quality rental spaces for businesses and professionals. Find your perfect office or workspace today!";
+            
+            // Показ візитки компанії
+            document.getElementById("company-info").style.display = "block";
         }
     </script>
 </body>
